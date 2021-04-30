@@ -1,0 +1,50 @@
+.header {
+	top: 0px;
+	right: 0px;
+	width: 100%;
+	position: fixed;
+	padding: 20px 0;
+	z-index: 9999;
+
+	background-color: transparent;
+	box-shadow: none;	
+	@include animacao;
+
+	.logo {
+		a {
+			display: block;
+			width: 125px;
+			@include animacao;
+
+			img {
+				display: block;
+				width: 100%;
+			}
+		}
+	}
+
+	&.scroll {
+		padding: 10px 0;
+		box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+		background-color: #ffffff;
+	
+		.nav-principal {
+			.logo {
+				a {
+					width: 80px;
+				}
+			}
+		}
+	}
+}
+
+.home {
+	.header {
+
+
+		&.scroll {
+			box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+			background-color: #ffffff;
+		}
+	}
+}

@@ -1,0 +1,12 @@
+.instagram-feed {
+	.instagram_gallery {
+		a {
+			display: block;
+			@include grayscale(100);
+
+			&:hover {
+				@include grayscale(0);
+			}
+		}
+	}
+}
