@@ -1,0 +1,197 @@
+.text-destaque {
+	width: 100%;
+	position: relative;
+	padding-top: 150px;
+
+	&.topo-efeito {
+		margin-top: -200px;
+	}
+
+	i {
+		position: absolute;
+		left: 50px;
+		top: 0;
+		z-index: 0;
+		opacity: .5;
+		font-size: 290px;
+	}
+
+	.text-destaque-item {
+		display: block;
+		font-family: $font-efeito;
+		font-size: 3rem;
+		line-height: 3rem + .5rem;
+		position: relative;
+		z-index: 1;
+	}
+
+	.text-destaque-legenda {
+		display: block;
+		font-size: 1.5rem;
+		line-height: 1.5rem+.5rem;
+		padding-left: 50%;
+		margin-top: 15px;
+		font-weight: $bold;
+	}
+}
+
+.img-destaque {
+	width: 100%;
+	padding: 30px 95px 40px 65px;
+	position: relative;
+	@include box-sizing;
+
+	@include media(1280){
+		padding: 15px 47.5px 20px 32.5px;
+	}
+
+	img {
+		width: 100%;
+		display: block;
+	}
+
+	&:before, &:after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		right: 65px;
+		background-color: $cor1;
+
+		@include media(1280){
+			right: 27.5px;
+		}
+	}
+
+	&:before {
+		width: 50%;
+		height: 10px;
+	}
+
+	&:after {
+		width: 10px;
+		height: 50%;
+	}
+}
+
+// depoimentos
+.depoimentos {
+	width: 100%;
+	padding: 0 40px;
+	box-sizing: border-box;
+	max-width: 1080px;
+	margin: 0 auto;
+
+	.item-depoimentos {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+
+		.content-item {
+			text-align: right;
+			width: 100%;
+
+			p {
+				font-size: 1.875rem;
+				line-height: 1.875rem + .5rem;
+				font-weight: $regular;
+			}
+
+			span {
+				display: block;
+
+				&.titulo-item {
+					margin-top: 15px;
+					color: $cor1;
+					font-weight: $bold;
+				}
+
+				&.subtitulo-item {
+					
+				}
+			}
+		}
+
+		.image-item {
+			width: 225px;
+			height: 225px;
+			overflow: hidden;
+			border-radius: 50%;
+			flex: 0 0 225px;
+			margin-left: 45px;
+
+			img {
+				object-fit: cover;
+				object-position: 50%;
+				width: 100%;
+				height: 100%;
+			}
+		}
+	}
+
+	.slick-dots {
+		margin-top: 55px;
+
+		li {
+			padding: 0 15px;
+
+			button {
+				width: 75px;
+				height: 75px;
+				border: 6px solid transparent;
+				background-size: contain;
+				background-position: center;
+				@include grayscale(100%);
+			}
+
+			&.slick-active {
+				button {
+					border-color: $cor1;
+					@include grayscale(0);
+				}
+			}
+		}
+	}
+}
+
+
+.box-legenda {
+	position: relative;
+	align-self: stretch;
+	padding-bottom: 100px;
+
+	.text-destaque {
+		margin-top: 10px;
+	}
+
+	.txt-legenda {
+		position: absolute;
+		bottom: 0;
+		max-width: 580px;
+		padding-bottom: 50px;
+	}
+}
+
+
+.trajetoria {
+	.box-section {
+		.row {
+			align-items: center;
+		}
+
+		.container {
+			max-width: 960px;
+		}
+
+		&:nth-child(even) {
+			background-color: #f1f3f8;
+
+			.row {
+				flex-direction: row-reverse; 
+			}
+		}
+	}
+
+	.data {
+		color: $cor-txt-claro;
+	}
+}

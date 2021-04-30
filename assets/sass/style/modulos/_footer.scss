@@ -1,0 +1,48 @@
+.footer {
+	background-image: url('../images/bg-footer.jpg');
+	background-position: top center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	padding: 180px 0 100px;
+	margin-top: 100px;
+
+	.text-subtitulo {
+		margin: 0;
+	}
+
+	.social-footer {
+		justify-content: end;
+	}
+
+	.social.social-email {
+		margin-left: 0;
+
+		.item span {
+			padding: 0;
+
+			a {
+				padding: 0;
+			}
+		}
+	}
+
+	.nav-contato-footer {
+		margin-top: 30px;
+	}
+
+	.dados-cnpj {
+		font-size: 1.5rem;
+		font-weight: $regular;
+	}
+
+	.copy, .copy strong {
+		font-size: 1rem;
+	}
+
+	.copy {
+		i {
+			margin-right: 7px;
+			font-size: 14px;
+		}
+	}
+}
