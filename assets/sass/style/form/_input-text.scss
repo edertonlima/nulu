@@ -1,0 +1,53 @@
+input[type='text'], input[type='email'], input[type='password'], input[type='date'], input[type='number'], input[type='tel'], textarea {
+	max-width: 100%;
+	width: 100%;
+	font-size: 1.125rem;
+	color: $cor1;
+	font-family: $font-family;
+	font-weight: $regular;
+	line-height: $height_input;
+	background-color: transparent;
+	padding: 0px;
+	font-style: normal;
+	@include animacao;
+	@include box-sizing;
+
+	@include placeholder{
+		opacity: 1;
+		color: $cor1;
+	}
+
+	&:focus {
+		border-color: $cor1;
+	}
+}
+
+
+input[type="number"] {
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+          appearance: textfield;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none;
+}
+
+
+.input-date-form {
+	position: relative;
+	margin-bottom: 0;
+
+	.input-action {
+		z-index: 1;
+		position: relative;
+		cursor: pointer;
+	}
+
+	input {
+		position: absolute;
+		top: 0;
+		opacity: 0;
+		z-index: 0;
+	}
+}

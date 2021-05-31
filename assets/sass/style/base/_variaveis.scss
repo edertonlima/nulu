@@ -1,0 +1,47 @@
+$width: 1130px;
+$padding-section: 60px;
+$padding-container: 40px;
+$padding-col: 20px;
+
+$font-size: 1.25rem;
+$line-height: 1.75rem;
+
+// FONTES
+$font-family: 'Open Sans', sans-serif;
+$font-destaque: 'Amatic SC', cursive;
+
+$light: 300;
+$regular: 400;
+$medium: 500;
+$semi-bold: 600;
+$bold: 700;
+$extra-bold: 800; 
+
+
+// texto
+$cor-txt: #505059;
+$cor-txt-claro: #8B8B94; 
+
+// borda
+$cor-border: #E8E8E8;
+
+// layout
+$cor1: #1071B9;
+$cor2: #C7295B;
+$cor3: #CDA787;
+$success: #8EC044;
+$error: #FA5357;
+
+// background
+$bg-escuro: #1E201C;
+$bg-claro: #fefefe;
+
+// cores do tema
+$colors: (
+	cor1: $cor1,
+	cor2: $cor2,
+	cor3: $cor3,
+	branco: #ffffff,
+	cinza-claro: #f1f3f8,
+	cinza-medio: #f1f3f8
+);

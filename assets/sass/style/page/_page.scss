@@ -1,0 +1,439 @@
+.slide-page {
+	height: 100vh;
+	
+	.item {
+		width: 100%;
+		.container {
+			display: flex;
+			align-items: center;
+		}
+
+		&.imagem {
+			background-position: center bottom;
+			background-size: cover;
+			background-repeat: no-repeat;
+
+			&.slide-item-height-full {
+				height: 100vh;
+			}
+		}
+
+		h2 {
+			margin-left: auto;
+			font-size: 55px;
+			width: 550px;
+			//background-image: url("../images/nulu_banner_azul.svg");
+			//background-repeat: repeat-y;
+			//background-size: contain;
+			line-height: 64px;
+			//height: 180px;
+			padding: 10px;
+			overflow: hidden;
+			background-color: $cor1;
+
+			@include media(920){
+				width: 560px;
+				width: 100%;
+				//height: 92px;
+				//padding: 12px 0px 0 4px;
+				padding: 12px 10px;
+				margin: 0 auto;
+				//background-image: url('../images/detalhe-titulo-slide-mobile.svg');
+				font-size: 33px;
+				line-height: 30px;
+				text-align: center;
+				letter-spacing: -0.972222px;
+				color: #FFFFFF;
+			}
+		}
+	}
+
+	.slick-slide {
+		//width: 100%;
+	}
+
+	.slick-dots {
+		margin: 0;
+		top: -50px;
+		position: relative;
+
+		li  {
+			button {
+				background-color: transparent;
+			}
+
+			&.slick-active {
+				button {
+					background-color: $cor1;
+				}
+			}
+		}
+	}
+}
+
+
+.box-quem-somos {
+	.container {
+		min-height: 300px;
+
+		&:after, &:before {
+			position: absolute;
+			content: '';
+
+			@include media(920){
+				display: none;
+			}
+		}
+
+		&:before {
+			bottom: 0;
+			left: 0;
+			width: 202px;
+			height: 262px;
+			background-position: bottom left;
+			background-image: url('../images/bg-home-quem-somos-left.png');
+		}
+
+		&:after {
+			top: 0;
+			right: 0;
+			width: 232px;
+			height: 236px;
+			background-image: url('../images/bg-home-quem-somos-right.png');
+		}
+	}
+
+	.direction-revert-mobile {
+		@include media(920){
+			flex-direction: column-reverse;
+			display: flex;
+		}
+	}
+}
+
+
+.list-ico-page {
+	margin: 40px auto;
+	display: flex;
+	justify-content: space-around;
+
+	.item-ico {
+		text-align: center;
+
+		.img-ico {
+			width: 110px;
+			height: 100px;
+		}
+
+		h3 {
+			font-size: 1.5rem;
+			line-height: normal;
+			margin-top: 25px;
+		}
+	}
+
+	@include media(920){
+		flex-direction: column-reverse;
+
+		.item-ico {
+			margin-top: 60px;
+
+			h3 {
+				font-size: 30px;
+				line-height: 30px;
+			}
+		}
+	}
+}
+
+
+.box-instagram {
+	p, #instagram-feed {
+		margin-top: 35px;
+	}
+
+	#instagram-feed {
+		margin-right: -6px;
+		margin-left: -6px;
+
+		.instagram_gallery {
+			display: flex;
+
+			@include media(920){
+				flex-direction: column-reverse;
+				padding: 0 40px;
+			}
+		}
+
+		 a {
+		 	display: block;
+		 	width: 16.666666666666668%;
+		 	height: 229px;
+		 	position: relative;
+		 	margin: 0 6px;
+
+		 	@include media(920){
+		 		width: 100%;
+		 		height: 0;
+		 		padding-bottom: 100%;
+		 		margin: 0 0 30px;
+
+		 		&:nth-child(4), &:nth-child(5), &:nth-child(6){
+		 			display: none;
+		 		}
+		 	}
+
+		 	img {
+		 		width: 100%!important;
+		 		height: 100%!important;
+		 		object-fit: cover;
+		 		@include box-sizing;
+
+		 		@include media(920){
+		 			position: absolute;
+		 			top: 0;
+		 			left: 0;
+		 		}
+		 	}
+
+		 	&:after {
+		 		content: '';
+		 		position: absolute;
+		 		top: 0;
+		 		left: 0;
+		 		width: 100%;
+		 		height: 100%;
+		 		background-color: rgba($cor2,.25);
+		 		opacity: 0;
+		 		@include animacao;
+		 	}
+
+		 	&:hover { 
+		 		&:after {
+		 			opacity: 1;
+		 		}
+		 	}
+		 }
+	}
+}
+
+
+.single, .page {
+	h1 {
+		margin: 0 auto 45px;
+		display: inline-block;
+		position: relative;
+
+		&.label-h1 {
+			margin-bottom: 95px;
+		}
+
+		div {
+			display: flex;
+			transform: translateY(40px);
+			position: absolute;
+			width: 100%;
+			bottom: 0;
+			left: 0;
+
+			a, span {
+				font-family: $font-family;
+				font-size: 16px;
+				line-height: 22px;
+				color: $cor-txt;
+				text-transform: lowercase;
+			}
+
+			a {
+				font-weight: $regular;
+
+				&:hover {
+					color: $cor2;
+				}
+			}
+
+			span {
+				margin-left: auto;
+				font-weight: $bold;
+			}
+		}
+	}
+
+	.img-single {
+		margin: 25px auto;
+		display: block;
+		width: auto;
+		max-width: 100%;
+
+		&:first-child {
+			margin-top: 0px; 
+		}
+
+		&:last-child {
+			margin-bottom: 0px; 
+		}
+
+		@include media(920){
+			margin-top: 50px;
+			margin-bottom: 50px;
+		}
+	}
+
+	.col-info-single {
+		display: flex;
+		justify-content: space-between;
+		flex-direction: column;
+
+		@include media(920){
+			margin-top: 50px;
+		}
+	}
+
+	.info-single {
+		margin-top: auto;
+	}
+
+	.embalagens {
+		display: flex;
+		justify-content: center;
+
+		p {
+			margin-bottom: 0;
+			text-align: left;
+
+			&:first-child {
+				padding-right: 10px;
+			}
+		}
+	}
+
+	.ico-redes {
+		text-align: center;
+
+		@include media(920){
+			margin-top: 100px;
+		}
+
+		p {
+			margin-bottom: 30px;
+		}
+
+		ul {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			li {
+				margin: 0 15px;
+
+				@include media(920){
+					margin: 0 5px;
+				}
+			}
+		}
+	}
+
+	.ico-single {
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+
+		li {
+			margin: 0 17px;
+
+			@include media(920){
+				margin: 0 5px;
+			}
+
+			&.ico-link {
+				margin: 0 30px;
+
+				img {
+					height: 100px;
+				}
+
+				span {
+					font-family: Open Sans;
+					font-weight: $bold;
+					font-size: 18px;
+					line-height: 20px;
+					letter-spacing: -0.303333px;
+					color: #505059;
+					display: block;
+					text-align: center;
+					margin-top: 21px;
+				}
+			}
+
+			&:first-child {
+				margin-left: 0px;
+			}
+
+			&:last-child {
+				margin-right: 0px;
+			}
+
+			&.img-hover {
+				position: relative;
+				cursor: pointer;
+
+				img {
+					@include animacao;
+				}
+
+				.ico-on {
+					z-index: 0;
+					position: relative;
+				}
+
+				.ico-hover {
+					position: absolute;
+					top: 0;
+					left: 0;
+					z-index: 1;
+					opacity: 0;
+				}
+
+				&:hover {
+					.ico-on {
+						opacity: 0;
+					}
+					.ico-hover {
+						opacity: 1;
+					}
+				}
+			}
+		}
+
+		img {
+			width: 100%;
+			display: block;
+		}
+	}
+
+	.footer-single {
+		margin-top: 50px;
+
+		@include media(920){
+			flex-direction: column-reverse;
+		}
+	}
+}
+
+.page {
+	h1 {
+		font-size: 48px;
+
+		@include media(920){
+			font-size: 36px;
+			line-height: 32px;
+		}
+	}
+
+	&.page-id-23, &.page-id-32, &.page-id-34 {
+		h1 {
+			width: 300px;
+			background-image: url('../images/detalhe-titulo-fale-conosco.svg');
+		}
+	}
+}

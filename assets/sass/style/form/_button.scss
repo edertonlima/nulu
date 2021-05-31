@@ -1,0 +1,50 @@
+.btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	text-decoration: none;
+	color: #ffffff;
+	background-color: transparent;
+	padding: 0px;
+	height: 58px;
+	line-height: normal;
+	font-size: 1.125rem;
+	@include box-sizing;
+	@include animacao;
+
+	&:hover {
+		text-decoration: none;
+	}
+
+	&:disabled {
+		cursor: default;
+		background-color: $cor-border!important;
+		color: rgba($cor-border, .5)!important;
+		border-color: $cor-border!important;
+	}
+
+	&.btn-full {
+		width: 100%; 
+	}
+
+	&.enviar {
+		width: 106px;
+		background-image: url('../images/detalhe-btn-enviar.svg');
+	}
+
+	&.btn-acessar-curso {
+		width: 280px;
+		height: 60px;
+		display: flex;
+		align-items: center;
+		font-size: 1.25rem;
+		color: #ffffff;
+		background-color: $cor1;
+		margin: 60px auto 0;
+
+		&:hover {
+			background-color: $cor2;
+		}
+	}
+}
