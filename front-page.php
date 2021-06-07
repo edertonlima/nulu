@@ -1,231 +1,75 @@
 
 <?php get_header(); ?>
 
-	<section class="box-section box-header-home" style="background-color: #e4e7f2; background-image: url('<?php the_field('foto-banner-home'); ?>');">
-		<div class="container">
-			<div class="row">
-				<div class="col-6 align-self-center">
+	<section class="box-section box-section-no-padding">
+		<div class="slide-page">
 
-					<div class="text-banner">
-						 <h1 class="text-clip clip cor-cor1">
-							<div class="text-clip-wrapper">
-								<?php if( have_rows('titulo-banner-home') ):
-									$i = 0;
-									while( have_rows('titulo-banner-home') ): the_row(); ?>
-										<span class="<?php if($i == 0){ echo 'is-visible'; }else{ echo 'is-hidden'; }?>">
-											<?php echo get_sub_field('texto'); ?>
-										</span>
-									<?php $i++; endwhile;
-								endif; ?>
+			<?php if( have_rows('slide-principal') ):
+				while( have_rows('slide-principal') ) : the_row(); ?>
+
+					<div class="item imagem slide-item-height-full" style="background-image: url('<?php the_sub_field('imagem'); ?>');">
+
+						<?php if(get_sub_field('titulo')){ ?>
+							<div class="container">
+								<h2 class="destaque"><?php the_sub_field('titulo'); ?></h2>
 							</div>
-							<p class="text-subtitulo destaque"><?php the_field('subtitulo-banner-home'); ?></p>
-						 </h1>
+						<?php } ?>
 					</div>
 
-				</div>
-			</div>
+				<?php endwhile;
+			endif; ?>
+
 		</div>
 	</section>
 
-	<section class="box-section">
+	<section class="box-section box-quem-somos bg-cor1">
 		<div class="container">
 			<div class="row">
-				<div class="col-8">
-					
-					<div class="text-destaque topo-efeito">
-						<i class="fas fa-quote-left cor-cinza-claro"></i>
-						<h3 class="text-destaque-item align-center cor-cor1">
-							<?php the_field('frase'); ?>
-						</h3>
-						<span class="text-destaque-legenda"><?php the_field('nome-frase'); ?></span>
-					</div>
+				<div class="col-12 align-center">
+					<h1 class="destaque cor-branco">bem vindo à nulu</h1>
 
-				</div>
-			</div>
-		</div>
-	</section>
+					<div class="direction-revert-mobile">
+						<div class="list-ico-page content-reduzido">
 
-	<section class="box-section">
-		<div class="container">
-			<div class="row">
-				<div class="col-6 align-self-center">
-					<div class="img-destaque">
-						<img src="<?php the_field('foto-biografia',129); ?>" alt="<?php the_title(); echo ', ' . get_bloginfo( 'name' ); ?>">
-					</div>
-				</div>
-				<div class="col-6 align-self-center">
-					
-					<div class="content-txt">								
-						<?php the_field('texto-biografia',129); ?>
-						<a href="<?php echo get_permalink(get_page_by_path('biografia')); ?>" class="btn btn-bg-cor1 cor-branco" title="conheça sua trajetória">conheça sua trajetória</a>
-					</div>
+							<?php if( have_rows('topicos') ):
+								while( have_rows('topicos') ) : the_row(); ?>
 
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<?php if( have_rows('depoimentos',129) ): ?>		    
-		<section class="box-section">
-			<div class="container">
-				<div class="row">
-					<div class="col-12">
-						
-						<div class="depoimentos" id="depoimentos">
-							<?php while( have_rows('depoimentos',129) ): the_row(); ?>				
-								
-								<div class="item-slide">
-									<div class="item-depoimentos">
-										<div class="content-item">
-											<p><?php the_sub_field('texto'); ?></p>
-											<span class="titulo-item"><?php the_sub_field('titulo'); ?></span>
-											<span class="subtitulo-item"><?php the_sub_field('subtitulo'); ?></span>
-										</div>
-										<div class="image-item">
-											<img src="<?php echo get_sub_field('foto')['sizes']['thumbnail']; ?>" alt="<?php the_sub_field('titulo'); ?>">
-										</div>
+									<div class="item-ico">
+										<div class="img-ico"><img src="<?php the_sub_field('icone'); ?>"></div>
+										<h3 class="cor-branco"><?php the_sub_field('titulo'); ?></h3>
 									</div>
-								</div>
 
-							<?php endwhile; ?>
+								<?php endwhile;
+							endif; ?>
+
 						</div>
 
+						<p class="content-reduzido cor-branco"><?php the_field('texto-topicos'); ?></p>
 					</div>
 				</div>
 			</div>
-		</section>
-	<?php endif; ?>
+		</div>
+	</section>
 
-	<section class="box-section bg-cinza-claro bg-meio">
+	<section class="box-section box-instagram">
 		<div class="container">
 			<div class="row">
-				<div class="col-6">
-					<h2 class="">Nossos Projetos</h2>
-					<?php if(get_field('descricao-projetos')){ ?>
-						<p class="text-subtitulo destaque"><?php the_field('descricao-projetos'); ?></p>
-					<?php } ?>
-				</div>
-			</div>
-
-			<?php if( have_rows('projetos') ): ?>
-				<div class="row row-projetos" id="projetos">
-					<?php while( have_rows('projetos') ): the_row(); ?>
-					
-						<div class="col-12">
-							<div class="projeto">
-								<?php if(get_sub_field('titulo-projetos')){ ?>
-									<h3 class=""><?php the_sub_field('titulo-projetos'); ?></h3>
-								<?php } ?>
-								<div class="scrollbar-dynamic">
-									<p><?php the_sub_field('texto-projetos'); ?></p>
-								</div>
-							</div>
-						</div>
-
-					<?php endwhile; ?>
-				</div>
-			<?php endif; ?>
-		</div>
-	</section>
-
-	<?php
-	$query = array(
-			'post_type' => 'post',
-			'posts_per_page' => 3
-		);
-	query_posts( $query );
-
-	if( have_posts() ){ ?>
-
-		<section class="box-section">
-			<div class="container">
-				<div class="row">
-					<div class="col-12">
-						<h2 class="align-center">Últimas Notícias</h2>
-						<p class="text-subtitulo destaque align-center">It is a long established fact that a reader will be distracted</p>
-					</div>
-				</div>
-
-				<div class="row row-post">
-					<?php while ( have_posts() ) : the_post(); ?>
-						<div class="col-4">
-							<?php get_template_part( 'content/list-post' ); ?>
-						</div>
-					<?php endwhile;
-					wp_reset_query(); ?>
-				</div>
-
-				<a href="#" class="btn veja-mais btn-bg-cor1 cor-branco">veja mais</a>
-			</div>
-		</section>
-
-	<?php } ?>
-
-	<section class="box-section">
-		<div class="">
-			<div class="row">
-				<div class="col-5">
-					<img src="<?php the_field('foto-destaque-home'); ?>" class="img-block" alt="">
-				</div>
-				<div class="col-6 align-self-center <?php if(get_field('legenda-destaque-home')){ echo 'box-legenda'; } ?>">
-					<div class="text-destaque">
-						<i class="fas fa-quote-left cor-cinza-claro"></i>
-						<h3 class="text-destaque-item align-left cor-cor1">
-							<?php the_field('titulo-destaque-home'); ?>
-						</h3>
-						<span class="text-destaque-legenda"><?php the_field('nome-destaque-home'); ?></span>
-					</div>
-
-					<?php if(get_field('legenda-destaque-home')){ ?>
-						<p class="txt-legenda"><?php the_field('legenda-destaque-home'); ?></p>
-					<?php } ?>
+				<div class="col-12 align-center">
+					<h2 class="destaque cor-cor2">universo nulu</h2>
+					<p class="content-reduzido cor-cor2">Siga no instagram <strong><a class="cor-cor2" href="https://www.instagram.com/nulu_foods/">@nulu_foods</a></strong> para mais informações, vídeos, receitas e dicas!</p>
 				</div>
 			</div>
 		</div>
-	</section>
 
-	<section class="box-section">
-		<div id="instagram-feed" class="instagram-feed"></div>
+		<div id="instagram-feed" class="box-instagrambox-instagrambox-instagrambox-instagram"></div>
 	</section>
 
 <?php get_footer(); ?>
 
+<script src="<?php echo get_template_directory_uri(); ?>/assets/js/plugins/scrollbar/scrollbar.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		
-	});
-</script>
-
-<script src="<?php echo get_template_directory_uri(); ?>/assets/js/plugins/text-clip/text-clip.js"></script>
-
-<script src="<?php echo get_template_directory_uri(); ?>/assets/js/plugins/slick/slick.js"></script>
-<script type="text/javascript">
-	$(document).ready(function(){
-		$('#depoimentos').slick({
-			dots: true,
-			arrows: false,
-			infinite: false,
-			speed: 300,
-			slidesToShow: 1,
-			slidesToScroll: 1
-		});
-
-		slide = 0;
-		$('#depoimentos .slick-dots li').each(function() {
-			imagem = $('#depoimentos .slick-slide[data-slick-index="'+ slide +'"] img').attr('src');
-			$('button', this).css('background-image','url('+ imagem +')');
-			slide = slide+1;
-		});
-
-		// projetos
-		$('#projetos').slick({
-			dots: true,
-			arrows: false,
-			infinite: false,
-			speed: 300,
-			slidesToShow: 3,
-			slidesToScroll: 1
-		});
+		$('.scrollbar-dynamic').scrollbar();
 	});
 </script>
 
@@ -234,7 +78,7 @@
 	(function($){
 		$(window).on('load', function(){
 			$.instagramFeed({
-				'username': 'edu_avallone',
+				'username': 'nulu_foods',
 				'container': "#instagram-feed",
 				'display_profile': false,
 				'display_biography': false,
@@ -242,17 +86,24 @@
 				'get_raw_json': false,
 				'callback': null,
 				'styling': true,
-				'items': 5,
-				'items_per_row': 5,
+				'items': 6,
+				'items_per_row': 6,
 				'margin': 0
 			});
 		});
 	})(jQuery);
 </script>
 
-<script src="<?php echo get_template_directory_uri(); ?>/assets/js/plugins/scrollbar/scrollbar.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/assets/js/plugins/slick/slick.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$('.scrollbar-dynamic').scrollbar();
+		$('.slide-page').slick({
+			dots: true,
+			arrows: false,
+			infinite: false,
+			speed: 300,
+			slidesToShow: 1,
+			slidesToScroll: 1
+		});
 	});
 </script>
